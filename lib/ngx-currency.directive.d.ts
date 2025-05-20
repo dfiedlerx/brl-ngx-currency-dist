@@ -1,19 +1,15 @@
-import { AfterViewInit, DoCheck, ElementRef, KeyValueDiffers } from '@angular/core';
+import { AfterViewInit, DoCheck, ElementRef, KeyValueDiffers, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NgxCurrencyConfig } from './ngx-currency.config';
 import * as i0 from "@angular/core";
-export declare class NgxCurrencyDirective implements AfterViewInit, ControlValueAccessor, DoCheck {
+export declare class NgxCurrencyDirective implements AfterViewInit, ControlValueAccessor, DoCheck, OnInit {
     private readonly _elementRef;
-    set currencyMask(value: Partial<NgxCurrencyConfig> | string);
-    /**
-     * @deprecated Use currencyMask input instead
-     */
-    set options(value: Partial<NgxCurrencyConfig>);
-    private readonly _inputHandler;
+    options: Partial<NgxCurrencyConfig>;
+    private _inputHandler;
     private readonly _keyValueDiffer;
-    private _options;
-    private readonly _optionsTemplate;
-    constructor(globalOptions: Partial<NgxCurrencyConfig>, keyValueDiffers: KeyValueDiffers, _elementRef: ElementRef<HTMLInputElement>);
+    private _optionsTemplate;
+    constructor(globalOptions: Partial<NgxCurrencyConfig>, keyValueDiffers: KeyValueDiffers, _elementRef: ElementRef);
+    ngOnInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;
     handleBlur(event: FocusEvent): void;
@@ -30,5 +26,5 @@ export declare class NgxCurrencyDirective implements AfterViewInit, ControlValue
     setDisabledState(isDisabled: boolean): void;
     writeValue(value: number): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxCurrencyDirective, [{ optional: true; }, null, null]>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxCurrencyDirective, "input[currencyMask]", never, { "currencyMask": { "alias": "currencyMask"; "required": false; }; "options": { "alias": "options"; "required": false; }; }, {}, never, never, true, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxCurrencyDirective, "[currencyMask]", never, { "options": "options"; }, {}, never, never, true, never>;
 }
